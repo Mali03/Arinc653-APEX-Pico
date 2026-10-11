@@ -1,0 +1,32 @@
+Proje adı
+RTOS üzerinde ARINC653 Prensipleri ile Aviyonik Sürücü Geliştirme
+
+Problem ve amaç
+Modern uçaklarda birçok aviyonik yazılım aynı bilgisayarı paylaşıyor, bu yüzden bir uygulamanın çökmesi ya da işlemciyi tıkaması diğerlerini de etkileyebiliyor. ARINC653 bunu her uygulamaya "partition" adı verilen, ayrı belleği ve zaman dilimi olan izole bir alana yerleştirerek çözüyor, ancak bunu sağlayan sertifikalı işletim sistemleri pahalı ve kapalı kaynaklı. Bu projede aynı fikri Raspberry Pi Pico 2 üzerinde çalışan bir prototiple hayata geçireceğiz. Partition’lar birbirinden izole çalışacak, bir hata olursa sistem bunu fark edip toparlanacak.
+
+Kapsam: aktörler
+Uygulama Geliştirici
+Sistem Entegratörü
+Test/Doğrulama Mühendisi
+MPU6050 Sensörü
+SD Kart Modülü
+Debugger (Picoprobe)
+Host PC
+
+Kapsam: temel use-case’ler
+Partition Tanımla
+Zamanlama Tablosunu Yapılandır
+Partition Çalıştır
+Portlar Üzerinden Mesaj Gönder
+Sensör Verisi Oku
+Hata Tespit Et
+Sağlık İzleme Kaydı Tut
+Sistemi Hata Sonrası Kurtar
+Zamanlama Doğrula
+
+Yazılım C, Pico SDK ve FreeRTOS ile geliştirilecek; donanım olarak çift çekirdekli Raspberry Pi Pico 2, MPU6050 sensörü ve SPI bağlantılı SD kart modülü (kayıtlar veritabanı olmadan doğrudan SD karta yazılır) kullanılacaktır. Hata ayıklamada Picoprobe (SWD), modellemede Enterprise Architect kullanılacak; hedef platform gömülü sistem, geliştirme ortamı masaüstü bilgisayardır.
+
+Benzer uygulamalar ve projenin farkı
+Sertifikalı ARINC653 işletim sistemleri (VxWorks 653, PikeOS gibi) ücretli ve kapalı kaynaklıdır. POK gibi açık kaynak çekirdekler de var, fakat bunlar genelde daha güçlü bir işlemci ister. Bizim projemiz partition, port, major/minor frame ve sağlık izleme kavramlarını birkaç dolarlık bir mikrodenetleyicide, kaynak kodu açık şekilde çalıştırıyor. Sertifikalı bir ürün değil, fikrin gerçek donanımda çalıştığını gösteren bir prototip olması hedeflenmektedir.
+
+https://docs.google.com/forms/d/e/1FAIpQLScAJFnzUBDWK7MN14THR9jJrjdTOBAGJWKPM5Q3BIvaWFZREA/viewform
