@@ -1,0 +1,22 @@
+src/
+├── CMakeLists.txt
+├── main.c                  (sadece başlatma, scheduler'ı başlatır)
+├── config/
+│   └── FreeRTOSConfig.h
+├── drivers/
+│   ├── mpu6050.c / .h
+│   ├── sd_spi.c / .h
+│   └── uart_log.c / .h
+├── apex/
+│   ├── apex_types.h
+│   ├── apex_partition.c / .h
+│   ├── apex_process.c / .h
+│   ├── apex_port.c / .h    (sampling/queuing port)
+│   └── apex_time.c / .h
+├── scheduler/
+│   └── tt_scheduler.c / .h (major/minor frame)
+├── health/
+│   └── health_monitor.c / .h
+└── partitions/
+    ├── part_sensor.c / .h
+    └── part_logger.c / .h
