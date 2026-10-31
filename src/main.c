@@ -2,7 +2,6 @@
 #include "pico/stdlib.h"
 #include "drivers/uart_log.h"
 #include "drivers/mpu6050.h"
-#include "hardware/i2c.h"
 
 #define I2C_PORT i2c1
 #define PIN_SDA 26
