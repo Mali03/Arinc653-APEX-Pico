@@ -33,12 +33,19 @@ project(src C CXX ASM)
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
+add_subdirectory(lib/no-OS-FatFS-SD-SPI-RPi-Pico/FatFs_SPI build_fatfs)
+
 # Add executable. Default name is the project name, version 0.1
 
 add_executable(src
     main.c
     drivers/mpu6050.c
     drivers/uart_log.c
+    drivers/sd_log.c
+)
+
+target_link_libraries(src
+    FatFs_SPI
 )
 
 pico_set_program_name(src "src")
